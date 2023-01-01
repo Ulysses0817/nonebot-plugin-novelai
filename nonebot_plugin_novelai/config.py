@@ -2,14 +2,12 @@ import json
 from pathlib import Path
 
 import aiofiles
-from nonebot import get_driver
-from nonebot.log import logger
+# from nonebot import get_driver
 from pydantic import BaseSettings, validator
 from pydantic.fields import ModelField
 
 jsonpath = Path("data/novelai/config.json").resolve()
-nickname = list(get_driver().config.nickname)[0] if len(
-    get_driver().config.nickname) else "nonebot-plugin-novelai"
+nickname = "nonebot-plugin-novelai"
 
 
 class Config(BaseSettings):
@@ -151,5 +149,5 @@ class Config(BaseSettings):
             return False
 
 
-config = Config(**get_driver().config.dict())
+config = Config()
 logger.info(f"加载config完成" + str(config))
