@@ -1,7 +1,7 @@
 import time
 from importlib.metadata import version
 
-from nonebot.log import logger
+from loguru import logger
 
 from .utils import check_last_version, sendtosuperuser, compare_version
 class Version():
